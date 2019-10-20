@@ -18,11 +18,9 @@ void loop()
 {
   static uint32_t i = 0;
 
-//  Serial.println(i);
+  delayMicroseconds(500);
 
-  delay(1);
-
-  enc.update();
+  enc.update(); // Update periodically
 
   if (++i >= 1024)
   {

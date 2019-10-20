@@ -11,7 +11,7 @@ public:
     // Reset absolute pos
     void reset();
 
-    // Update encoder value / absolute pos
+    // Update encoder value / absolute pos, should be called periodically
     void update();
 
     // Get buffered absolute pos

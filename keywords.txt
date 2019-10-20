@@ -1,0 +1,20 @@
+#######################################
+# Syntax Coloring Map For AS5600Encoder
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+AS5600Encoder   KEYWORD2
+reset           KEYWORD2
+update          KEYWORD2
+getAbslutePos   KEYWORD2
+getEncoderVal   KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################

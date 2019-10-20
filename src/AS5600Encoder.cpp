@@ -12,9 +12,14 @@ AS5600Encoder::AS5600Encoder(int pin, bool reverse)
 {
     _pin = pin;
     _reverse = reverse;
-    _absolute_pos = 0;
 
     pinMode(pin, INPUT_ANALOG);
+    analogRead(_pin);   // Discard first result
+
+    noInterrupts();
+    _encoder_val = analogRead(_pin);
+    _absolute_pos = 0;
+    interrupts();
 }
 
 
@@ -27,7 +32,7 @@ void AS5600Encoder::reset()
 }
 
 
-// Update encoder value / absolute pos
+// Update encoder value / absolute pos, should be called periodically
 void AS5600Encoder::update()
 {
     uint16_t encoder_val;
