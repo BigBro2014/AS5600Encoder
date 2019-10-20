@@ -4,14 +4,12 @@
 #include "AS5600Encoder.h"
 
 
-#define TICKS_PER_TURN 4096
-
-
 // Constructor
-AS5600Encoder::AS5600Encoder(int pin, bool reverse)
+AS5600Encoder::AS5600Encoder(int pin, int resolution, bool reverse)
 {
     _pin = pin;
     _reverse = reverse;
+    _resolution = resolution;
 
     pinMode(pin, INPUT_ANALOG);
     analogRead(_pin);   // Discard first result
@@ -42,20 +40,20 @@ void AS5600Encoder::update()
     encoder_val = analogRead(_pin);
 
     if (_reverse)
-        encoder_val = TICKS_PER_TURN - encoder_val;
+        encoder_val = _resolution - encoder_val;
 
     noInterrupts();
     diff = encoder_val - _encoder_val;
     pos = _absolute_pos;
     interrupts();
 
-    if (diff > TICKS_PER_TURN / 2)
+    if (diff > _resolution / 2)
     {
-        pos += diff - TICKS_PER_TURN;
+        pos += diff - _resolution;
     }
-    else if (diff < -(TICKS_PER_TURN / 2))
+    else if (diff < -(_resolution / 2))
     {
-        pos += diff + TICKS_PER_TURN;
+        pos += diff + _resolution;
     }
     else
     {

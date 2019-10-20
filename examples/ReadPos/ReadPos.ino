@@ -5,7 +5,7 @@
 #include "AS5600Encoder.h"
 
 
-AS5600Encoder enc(PA0, false);
+AS5600Encoder enc(PA0, 4096, true);
 
 
 void setup()
