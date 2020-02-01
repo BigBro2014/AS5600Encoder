@@ -5,7 +5,7 @@
 #include "AS5600Encoder.h"
 
 
-AS5600Encoder enc(PA0, 4096, true);
+AS5600Encoder enc(PA0, 4096, true); // For arduino, ADC resolution is 1024. For STM32uino, use 4096.
 
 
 void setup()
