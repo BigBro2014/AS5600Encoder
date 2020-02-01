@@ -5,13 +5,13 @@
 
 
 // Constructor
-AS5600Encoder::AS5600Encoder(int pin, int resolution, bool reverse)
+AS5600Encoder::AS5600Encoder(int pin, int adc_resolution, bool reverse)
 {
     uint16_t encoder_val;
 
     _pin = pin;
     _reverse = reverse;
-    _resolution = resolution;
+    _resolution = adc_resolution;
 
     pinMode(pin, INPUT_ANALOG);
     analogRead(_pin);   // Discard first result
