@@ -6,8 +6,8 @@ class AS5600Encoder
 {
 public:
     // Constructor
-    // resolution must be power of 2, e.g., 1024, 4096, etc. 
-    AS5600Encoder(int pin, int resolution, bool reverse);
+    // adc_resolution must be power of 2, e.g., 1024, 4096, etc. 
+    AS5600Encoder(int pin, int adc_resolution, bool reverse);
 
     // Reset absolute pos
     void reset();
